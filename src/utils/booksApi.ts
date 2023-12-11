@@ -11,7 +11,9 @@ function replaceImageZoom(url?: string) {
   let urlObj = new URL(url);
   let params = urlObj.searchParams;
   params.set("zoom", "4");
-  return urlObj.origin + urlObj.pathname + "?" + params.toString();
+  let finalUrl = urlObj.origin + urlObj.pathname + "?" + params.toString();
+  finalUrl = finalUrl.replace("http://", "https://");
+  return finalUrl;
 }
 
 export const getBooks = async (query: string) => {
@@ -25,7 +27,6 @@ export const getBooks = async (query: string) => {
     .map((info) => {
       const images = info.imageLinks;
       const image = images?.thumbnail ?? images?.smallThumbnail;
-      console.log(info);
       return {
         authors: info.authors?.join(", "),
         title: info.title,
@@ -34,4 +35,23 @@ export const getBooks = async (query: string) => {
     });
 
   return books;
+};
+
+export const createBookQuote = async (quote: string, book: BookType) => {
+  const body = {
+    quote,
+    authors: book.authors,
+    title: book.title,
+    imageUrl: book.image,
+  };
+
+  const result = await fetch("/api/generate-image", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  });
+
+  return result.blob();
 };

@@ -24,15 +24,23 @@
   border-radius: 0 0px 8px 8px;
 }
 
+.options {
+  box-shadow: 4px 3px 3px rgba(103, 242, 209, 0.5);
+}
+
 .options li {
   display: flex;
   align-items: center;
   color: black;
   padding: 5px 12px;
-  min-height: 40px;
+  min-height: 45px;
 }
 
 .options li:hover {
   cursor: pointer;
   background-color: lightgray;
+}
+
+.options li + li {
+  border-top: solid 1px lightgray;
 }

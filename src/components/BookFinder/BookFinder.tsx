@@ -37,6 +37,7 @@ export const BookFinder = ({
               key={index}
               onClick={() => {
                 setShowOptions(false);
+                setInput(book.title);
                 onSelectBook(book);
               }}
             >

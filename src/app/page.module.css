@@ -1,9 +1,12 @@
 .main {
   display: flex;
   flex-direction: column;
+  font-family: monospace;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+  max-width: 70vw;
+  margin: 0 auto;
 }
 
 .section {
@@ -17,7 +20,7 @@
 .buttonSection {
   display: flex;
   margin-top: 10px;
-  width: 50%;
+  width: 100%;
   margin-bottom: 50px;
 }
 
@@ -28,4 +31,22 @@
   padding: 0 10px;
   border: none;
   border-radius: 8px;
+  cursor: pointer;
+  font-family: monospace;
+}
+
+.buttonGenerator:hover {
+  background-color: cyan;
+  color: black;
+  font-weight: bold;
+}
+
+.imageQuote {
+  width: 100%;
+}
+
+@media only screen and (max-width: 1024px) {
+  .main {
+    max-width: 100vw;
+  }
 }

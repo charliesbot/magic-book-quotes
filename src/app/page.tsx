@@ -3,7 +3,7 @@
 import styles from "./page.module.css";
 import { BookFinder } from "@/components/BookFinder/BookFinder";
 import { useCallback, useState } from "react";
-import { BookType, getBooks } from "@/utils/booksApi";
+import { BookType, createBookQuote, getBooks } from "@/utils/booksApi";
 import { FancyQuote } from "@/components/FancyQuote";
 import { QuoteInput } from "@/components/QuoteInput/QuoteInput";
 import { Signature } from "@/components/Signature/Signature";
@@ -19,7 +19,14 @@ const debounce = (func: Function, delay: number) => {
 export default function Home() {
   const [book, setBook] = useState<BookType>();
   const [quote, setQuote] = useState<string>("");
+  const [image, setImage] = useState<string>();
   const [collection, setCollection] = useState<BookType[]>([]);
+  const onCreateImage = async () => {
+    const imageBlob = await createBookQuote(quote, book!);
+    const imageURL = URL.createObjectURL(imageBlob);
+    setImage(imageURL);
+  };
+
   const loadOptionsDebounced = useCallback(
     debounce((inputValue: string) => {
       if (!inputValue) {
@@ -46,10 +53,13 @@ export default function Home() {
             onSelectBook={setBook}
             collection={collection}
           />
-          <button className={styles.buttonGenerator}>Generate</button>
+          <button onClick={onCreateImage} className={styles.buttonGenerator}>
+            Generate
+          </button>
         </div>
+        <img className={styles.imageQuote} src={image} alt={quote} />
       </div>
-      <FancyQuote book={book} quote={quote} />
+      {/* <FancyQuote book={book} quote={quote} /> */}
     </main>
   );
 }

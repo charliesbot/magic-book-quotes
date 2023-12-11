@@ -45,6 +45,7 @@ export const FancyQuote = (props: Props) => {
     const ctx = canvas.getContext("2d");
     const image = new Image();
 
+    console.log(book.image);
     image.onload = () => {
       // Clear the canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);
