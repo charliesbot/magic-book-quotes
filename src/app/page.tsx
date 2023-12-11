@@ -6,6 +6,7 @@ import { useCallback, useState } from "react";
 import { BookType, getBooks } from "@/utils/booksApi";
 import { FancyQuote } from "@/components/FancyQuote";
 import { QuoteInput } from "@/components/QuoteInput/QuoteInput";
+import { Signature } from "@/components/Signature/Signature";
 
 const debounce = (func: Function, delay: number) => {
   let debounceTimer: NodeJS.Timeout;
@@ -33,6 +34,7 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
+      <Signature />
       <div className={styles.section}>
         <QuoteInput
           quote={quote}

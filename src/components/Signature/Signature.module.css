@@ -1,0 +1,9 @@
+.signature {
+  font-family: monospace;
+  font-size: 14px;
+  margin: 10px 0 20px;
+}
+
+.signature a {
+  color: cyan;
+}
