@@ -15,7 +15,7 @@ export const BookFinder = ({
 }: BookFinderType) => {
   const [input, setInput] = useState("");
   const [showOptions, setShowOptions] = useState(false);
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value);
     loadOptions(event.target.value);
   };

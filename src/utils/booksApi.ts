@@ -23,8 +23,8 @@ export const getBooks = async (query: string) => {
   const result = await fetch(url, { method: "GET" });
   const json = await result.json();
   const books: BookType[] = json.items
-    .map(({ volumeInfo }) => volumeInfo)
-    .map((info) => {
+    .map(({ volumeInfo }: any) => volumeInfo)
+    .map((info: any) => {
       const images = info.imageLinks;
       const image = images?.thumbnail ?? images?.smallThumbnail;
       return {

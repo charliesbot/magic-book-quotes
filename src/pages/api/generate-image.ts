@@ -1,4 +1,5 @@
 import { createCanvas, registerFont, Image } from "canvas";
+import { NextApiRequest, NextApiResponse } from "next";
 import path from "path";
 
 const width = 1000;
@@ -7,7 +8,7 @@ const paddingLeft = 100;
 const paddingRight = 450;
 
 const wrapText = (
-  ctx,
+  ctx: any,
   text: string,
   x: number,
   maxWidth: number,
@@ -32,7 +33,10 @@ const wrapText = (
   return lines;
 };
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method !== "POST") {
     res.status(405).send("Method Not Allowed");
   }

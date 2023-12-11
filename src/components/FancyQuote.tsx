@@ -1,6 +1,7 @@
 import { BookType } from "@/utils/booksApi";
 import { useEffect, useRef } from "react";
 import { Lora, Roboto } from "next/font/google";
+import { CanvasRenderingContext2D } from "canvas";
 
 const lora = Lora({ subsets: ["latin"] });
 const roboto = Roboto({ weight: "300", subsets: ["latin"] });
@@ -15,7 +16,13 @@ const height = 562;
 const paddingLeft = 100;
 const paddingRight = 450;
 
-const wrapText = (ctx, text, x, maxWidth, lineHeight) => {
+const wrapText = (
+  ctx: any,
+  text: string,
+  x: number,
+  maxWidth: number,
+  lineHeight: number
+) => {
   const words = text.split(" ");
   let line = "";
   let lines = [];
@@ -42,10 +49,9 @@ export const FancyQuote = (props: Props) => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas || !book) return;
-    const ctx = canvas.getContext("2d");
+    const ctx: any = canvas.getContext("2d");
     const image = new Image();
 
-    console.log(book.image);
     image.onload = () => {
       // Clear the canvas
       ctx.clearRect(0, 0, canvas.width, canvas.height);
