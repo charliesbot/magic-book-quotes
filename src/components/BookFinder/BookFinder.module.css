@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.input {
+  border-radius: 8px;
+  border: none;
+  height: 40px;
+  width: 50%;
+  flex: 1;
+  padding: 0 12px;
+}
+
+.options {
+  position: absolute;
+  width: 100%;
+  top: 40px;
+  list-style: none;
+  background-color: white;
+  padding: 5px 0;
+  border-radius: 0 0px 8px 8px;
+}
+
+.options li {
+  display: flex;
+  align-items: center;
+  color: black;
+  padding: 5px 12px;
+  min-height: 40px;
+}
+
+.options li:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
