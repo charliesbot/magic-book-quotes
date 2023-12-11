@@ -21,9 +21,13 @@ export default function Home() {
   const [quote, setQuote] = useState<string>("");
   const [image, setImage] = useState<string>();
   const [collection, setCollection] = useState<BookType[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   const onCreateImage = async () => {
+    setIsLoading(true);
     const imageBlob = await createBookQuote(quote, book!);
     const imageURL = URL.createObjectURL(imageBlob);
+    setIsLoading(false);
     setImage(imageURL);
   };
 
@@ -54,7 +58,7 @@ export default function Home() {
             collection={collection}
           />
           <button onClick={onCreateImage} className={styles.buttonGenerator}>
-            Generate
+            {isLoading ? <div className={styles.spinner} /> : "Generate"}
           </button>
         </div>
         <img className={styles.imageQuote} src={image} alt={quote} />

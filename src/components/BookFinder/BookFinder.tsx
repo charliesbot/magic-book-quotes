@@ -25,6 +25,7 @@ export const BookFinder = ({
         onFocus={() => {
           setShowOptions(true);
         }}
+        placeholder="Search a book..."
         type="text"
         className={styles.input}
         value={input}

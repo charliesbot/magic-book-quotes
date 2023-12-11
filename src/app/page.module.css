@@ -25,6 +25,9 @@
 }
 
 .buttonGenerator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 40px;
   width: 150px;
   margin-left: 20px;
@@ -43,6 +46,24 @@
 
 .imageQuote {
   width: 100%;
+}
+
+.spinner {
+  border: 4px solid cyan;
+  border-top: 4px solid transparent;
+  border-radius: 50%; /* Circular shape */
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite; /* Animation applied here */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @media only screen and (max-width: 1024px) {

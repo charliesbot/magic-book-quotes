@@ -10,6 +10,7 @@ export const QuoteInput = (props: Props) => {
     <textarea
       className={styles.textarea}
       value={props.quote}
+      placeholder="What's your book quote?"
       onInput={(e) => {
         props.onSetQuote(e.target.value);
       }}
