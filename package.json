@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "canvas": "^2.11.2",
+    "@napi-rs/canvas": "^0.1.44",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
