@@ -109,6 +109,7 @@ export default function Home() {
             {isLoading ? <div className={styles.spinner} /> : "Generate"}
           </button>
         </div>
+        <img className={styles.imageQuote} src={image} alt={quote} />
         {imageBlob ? (
           <div className={styles.quoteActions}>
             <button
@@ -138,7 +139,6 @@ export default function Home() {
             ) : null}
           </div>
         ) : null}
-        <img className={styles.imageQuote} src={image} alt={quote} />
       </div>
     </main>
   );
