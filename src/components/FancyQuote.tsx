@@ -1,7 +1,6 @@
 import { BookType } from "@/utils/booksApi";
 import { useEffect, useRef } from "react";
 import { Lora, Roboto } from "next/font/google";
-import { CanvasRenderingContext2D } from "canvas";
 
 const lora = Lora({ subsets: ["latin"] });
 const roboto = Roboto({ weight: "300", subsets: ["latin"] });
