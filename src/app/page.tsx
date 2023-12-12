@@ -2,7 +2,7 @@
 
 import styles from "./page.module.css";
 import { BookFinder } from "@/components/BookFinder/BookFinder";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { BookType, createBookQuote, getBooks } from "@/utils/booksApi";
 import { QuoteInput } from "@/components/QuoteInput/QuoteInput";
 import { Signature } from "@/components/Signature/Signature";
