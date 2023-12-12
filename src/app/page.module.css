@@ -21,7 +21,12 @@
   display: flex;
   margin-top: 10px;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+}
+
+.quoteActions {
+  display: flex;
+  margin-top: 20px;
 }
 
 .buttonGenerator:hover {
@@ -94,11 +99,6 @@
   100% {
     transform: rotate(360deg);
   }
-}
-
-.quoteActions {
-  display: flex;
-  margin-top: 20px;
 }
 
 .actionButton {
