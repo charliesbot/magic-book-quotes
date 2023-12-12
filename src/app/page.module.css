@@ -24,6 +24,22 @@
   margin-bottom: 50px;
 }
 
+.buttonGenerator:hover {
+  font-weight: bold;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .buttonGenerator {
   display: flex;
   justify-content: center;
@@ -34,14 +50,28 @@
   padding: 0 10px;
   border: none;
   border-radius: 8px;
-  cursor: pointer;
   font-family: monospace;
+  border: none;
+  outline: none;
+  color: white;
+  background: linear-gradient(
+    45deg,
+    #845ec2,
+    #d65db1,
+    #ff6f91,
+    #ff9671,
+    #ffc75f,
+    #f9f871
+  );
+  background-size: 600% 600%;
+  animation: gradientAnimation 8s ease infinite;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .buttonGenerator:hover {
-  background-color: cyan;
-  color: black;
-  font-weight: bold;
+  transform: scale(1.05);
 }
 
 .imageQuote {
@@ -70,4 +100,22 @@
   .main {
     max-width: 100vw;
   }
+}
+
+.quoteActions {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.actionButton {
+  cursor: pointer;
+  font-family: monospace;
+  color: white;
+  fill: white;
+  width: 50px;
+  height: 50px;
+}
+
+.actionButton + .actionButton {
+  margin-left: 30px;
 }
