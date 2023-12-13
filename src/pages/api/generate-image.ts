@@ -68,7 +68,7 @@ export default async function handler(
   ctx.rotate(rotation); // Rotate the canvas
 
   // Draw the image
-  const scaleFactor = 0.6; // Scale factor for the image size
+  const scaleFactor = 0.65; // Scale factor for the image size
   ctx.drawImage(
     image,
     (-image.width * scaleFactor) / 2,

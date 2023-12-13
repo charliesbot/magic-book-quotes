@@ -2,10 +2,11 @@
 
 import styles from "./page.module.css";
 import { BookFinder } from "@/components/BookFinder/BookFinder";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { BookType, createBookQuote, getBooks } from "@/utils/booksApi";
 import { QuoteInput } from "@/components/QuoteInput/QuoteInput";
 import { Signature } from "@/components/Signature/Signature";
+import { getDebugBook } from "@/utils/powerModes";
 
 const debounce = (func: Function, delay: number) => {
   let debounceTimer: NodeJS.Timeout;
@@ -16,12 +17,17 @@ const debounce = (func: Function, delay: number) => {
 };
 
 export default function Home() {
-  const [book, setBook] = useState<BookType>();
+  const [book, setBook] = useState<BookType | null>(null);
   const [quote, setQuote] = useState<string>("");
   const [image, setImage] = useState<string>();
   const [collection, setCollection] = useState<BookType[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [imageBlob, setImageBlob] = useState<Blob | null>(null);
+
+  useEffect(() => {
+    const debugBook = getDebugBook();
+    setBook(debugBook);
+  }, []);
 
   const onCreateImage = async () => {
     setIsLoading(true);
@@ -98,13 +104,13 @@ export default function Home() {
           />
           <button
             onClick={() => {
+              debugger;
               if (isLoading || book == undefined || !quote) {
                 return;
               }
               onCreateImage();
             }}
             className={styles.buttonGenerator}
-            disabled={false}
           >
             {isLoading ? <div className={styles.spinner} /> : "Generate"}
           </button>
