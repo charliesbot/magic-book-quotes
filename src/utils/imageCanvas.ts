@@ -1,6 +1,7 @@
 import { SKRSContext2D } from "@napi-rs/canvas";
-import { getColorFromURL } from "color-thief-node";
 import { ColorsPalette } from "./colors";
+import { FastAverageColorRgba } from "fast-average-color";
+import { getAverageColor } from "fast-average-color-node";
 
 export const wrapText = (
   ctx: SKRSContext2D,
@@ -34,6 +35,6 @@ type CanvasColors = {
 export const getPaletteFromBookCover = async (
   imageUrl: string
 ): Promise<CanvasColors> => {
-  const rgbPalette = await getColorFromURL(imageUrl);
-  return new ColorsPalette(rgbPalette).getPalette();
+  const rgba = (await getAverageColor(imageUrl)).value;
+  return new ColorsPalette(rgba).getPalette();
 };

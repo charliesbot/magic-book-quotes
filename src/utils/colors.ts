@@ -1,10 +1,12 @@
-type ColorPalette = [number, number, number];
+import { FastAverageColorRgba } from "fast-average-color";
+
+type HSL = [number, number, number];
 
 export class ColorsPalette {
-  rgb: [number, number, number] = [-1, -1, -1];
+  rgba: FastAverageColorRgba;
 
-  constructor(rgb: ColorPalette) {
-    this.rgb = rgb;
+  constructor(rgba: FastAverageColorRgba) {
+    this.rgba = rgba;
   }
 
   getPalette() {
@@ -16,8 +18,8 @@ export class ColorsPalette {
     };
   }
 
-  convertToHSL(): ColorPalette {
-    let [r, g, b] = [...this.rgb];
+  convertToHSL(): HSL {
+    let [r, g, b] = [...this.rgba];
     r /= 255;
     g /= 255;
     b /= 255;

@@ -97,7 +97,6 @@ export default async function handler(
   // Clear the canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // ctx.fillStyle = "white";
   ctx.fillStyle = backgroundColor;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
