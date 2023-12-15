@@ -83,7 +83,7 @@ export default async function handler(
   const ctx = canvas.getContext("2d");
   const image = await loadImage(imageUrl);
   const { foregroundColor, backgroundColor } = await getPaletteFromBookCover(
-    image
+    imageUrl
   );
 
   const canvasData: CanvasData = {

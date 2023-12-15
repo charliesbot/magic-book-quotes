@@ -1,11 +1,6 @@
-import { Image, SKRSContext2D } from "@napi-rs/canvas";
-import { FastAverageColor } from "fast-average-color";
-import {
-  CanvasColors,
-  convertToHSL,
-  getPalette,
-  getPredominantColors,
-} from "./colors";
+import { SKRSContext2D } from "@napi-rs/canvas";
+import { getColorFromURL } from "color-thief-node";
+import { ColorsPalette } from "./colors";
 
 export const wrapText = (
   ctx: SKRSContext2D,
@@ -31,12 +26,14 @@ export const wrapText = (
   return lines;
 };
 
+type CanvasColors = {
+  foregroundColor: string;
+  backgroundColor: string;
+};
+
 export const getPaletteFromBookCover = async (
   imageUrl: string
 ): Promise<CanvasColors> => {
-  const color = await new FastAverageColor().getColorAsync(imageUrl);
-  //   const canvasColors: CanvasColors[] = (await getPredominantColors(image, 1))
-  //     .map(convertToHSL)
-  //     .map(getPalette);
-  //   return canvasColors[0];
+  const rgbPalette = await getColorFromURL(imageUrl);
+  return new ColorsPalette(rgbPalette).getPalette();
 };
