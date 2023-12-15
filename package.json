@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@napi-rs/canvas": "^0.1.44",
-    "@types/color-thief-node": "^1.0.4",
     "color-thief-node": "^1.0.4",
     "next": "14.0.4",
     "react": "^18",
@@ -19,6 +18,7 @@
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/color-thief-node": "^1.0.4",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",

@@ -7,8 +7,8 @@ import {
   loadImage,
   SKRSContext2D,
 } from "@napi-rs/canvas";
-import path from "path";
 import { getPaletteFromBookCover, wrapText } from "@/utils/imageCanvas";
+import path from "path";
 
 type CanvasData = {
   ctx: SKRSContext2D;
@@ -83,7 +83,7 @@ export default async function handler(
   const ctx = canvas.getContext("2d");
   const image = await loadImage(imageUrl);
   const { foregroundColor, backgroundColor } = await getPaletteFromBookCover(
-    imageUrl
+    image
   );
 
   const canvasData: CanvasData = {
