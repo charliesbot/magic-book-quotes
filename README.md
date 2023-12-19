@@ -4,6 +4,10 @@ Magic Book Quotes is a web app made using NextJS.
 
 It facilitates the creation of images from book quotes by leveraging the [Google Books API](https://developers.google.com/books)
 
+## Playground
+
+Go to https://magic-book-quotes.vercel.app to try the production environment of this project.
+
 ## Run the project
 
 ```
