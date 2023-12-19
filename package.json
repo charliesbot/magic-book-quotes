@@ -1,27 +1,46 @@
 {
-  "name": "magic-book-quotes",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@napi-rs/canvas": "^0.1.44",
-    "fast-average-color-node": "^2.7.0",
-    "next": "14.0.4",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-select": "^5.8.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.4",
-    "typescript": "^5"
-  }
+    "name": "magic-book-quotes",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint:js": "eslint --ignore-path .gitignore --fix .",
+        "lint:js:check": "eslint --ignore-path .gitignore .",
+        "lint:css:stylelint": "stylelint --ignore-path .gitignore '**/*.css' --allow-empty-input --fix",
+        "lint:css:stylelint:check": "stylelint --ignore-path .gitignore '**/*.css' --allow-empty-input",
+        "lint:json": "prettier --ignore-path .gitignore '**/*.json' --list-different --write",
+        "lint:json:check": "prettier --ignore-path .gitignore '**/*.json' --list-different",
+        "lintOnlyCssAndJson": "npm run lint:css:stylelint ; yarn lint:json",
+        "lintOnlyCssAndJson:check": "npm run lint:css:stylelint:check ; yarn lint:json:check",
+        "lint": "npm run lint:js && npm run lintOnlyCssAndJson",
+        "lint:check": "npm run lint:js:check && npm run lintOnlyCssAndJson:check"
+    },
+    "dependencies": {
+        "@napi-rs/canvas": "^0.1.44",
+        "fast-average-color-node": "^2.7.0",
+        "next": "14.0.4",
+        "react": "^18",
+        "react-dom": "^18",
+        "react-select": "^5.8.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "eslint": "^8",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-next": "14.0.4",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-next": "^0.0.0",
+        "eslint-plugin-prettier": "^5.1.0",
+        "prettier": "^3.1.1",
+        "prettier-plugin-jsdoc": "^1.1.1",
+        "stylelint": "^16.0.2",
+        "stylelint-config-idiomatic-order": "^10.0.0",
+        "stylelint-config-recommended": "^14.0.0",
+        "stylelint-prettier": "^5.0.0",
+        "typescript": "^5"
+    }
 }
