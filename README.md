@@ -26,3 +26,11 @@ The application utilizes the Google Books API to fetch essential data, including
 This data is then transmitted to the server side.
 
 Here, a canvas is generated and converted into an image, which is subsequently sent back to the client for display.
+
+## Goals
+
+The mantra of this project is "Less is more."
+
+Our aim is to develop a simple app capable of creating images with just a few clicks.
+
+This project's goal is not to address every possible use case, but rather to provide straightforward solutions for the most common ones.
