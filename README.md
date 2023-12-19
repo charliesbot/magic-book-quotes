@@ -22,5 +22,7 @@ Then, open your browser and navigate to http://localhost:3000 to start creating 
 ## How It Works
 
 The application utilizes the Google Books API to fetch essential data, including the book's title, author, and cover image.
+
 This data is then transmitted to the server side.
+
 Here, a canvas is generated and converted into an image, which is subsequently sent back to the client for display.
